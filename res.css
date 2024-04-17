@@ -1,0 +1,130 @@
+.reservation-form-container {
+  max-width: 600px; /* Adjust to suit your design */
+  margin: auto; /* Center the container */
+  background: black; /* Background of the form container */
+  padding: 20px;
+  text-align: center;
+  color: white; /* Text color */
+}
+
+.reservation-form-container h2 {
+  margin-bottom: 30px; /* Spacing below the heading */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Spacing between form groups */
+}
+
+.form-group label {
+  display: block; /* Ensure the label uses the full width */
+  margin-bottom: 10px; /* Spacing below the label */
+}
+
+
+.form-group select,
+.form-group input[type="date"] {
+  width: 50vh; /* Full width of the container */
+  padding: 10px;
+  border: 2px solid #000; /* Black border */
+  border-radius: 0; /* Square corners */
+}
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+  .form-group select,
+  .form-group input[type="date"] {
+    width: 25vh; /* Full width on smaller screens */
+    padding: 10px;
+    border: 2px solid #000; /* Black border */
+    border-radius: 0; /* Square corners */
+  }
+}
+.find-table-btn {
+  font-family: "Myriad Light";
+  width: 20vh; /* Full width of the container */
+  padding: 10px 0; /* Padding on top and bottom */
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  cursor: pointer; /* Cursor pointer on hover */
+  border-color: #fff;
+}
+
+.find-table-btn:hover {
+  background-color: #333; /* Slightly lighter black on hover */
+}
+
+.pika-single {
+  background-color: #fff;
+  /* Add any additional styles to match your theme */
+}
+
+/* Style the input field */
+#date-picker {
+  cursor: pointer; /* To indicate this is a date field */
+  /* Add more styles as needed */
+}
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal-content {
+    /* background-color: #fefefe; */
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #fff;
+    width: 50%;
+    color: white;
+}
+@media (max-width: 600px) {
+	.modal-content {
+    /* background-color: #fefefe; */
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #fff;
+    width: 100%;
+    color: white;
+}
+}
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.select-time {
+    font-size: 16px; /* Adjusts the font size */
+    padding: 8px 12px; /* Padding inside the dropdown */
+    border-radius: 4px; /* Rounded corners */
+    border: 1px solid #ccc; /* Gray border */
+    background-color: white; /* Background color */
+    width: auto; /* Adjust width as needed */
+    -webkit-appearance: none; /* Removes default Chrome styling */
+    -moz-appearance: none; /* Removes default Firefox styling */
+    appearance: none; /* Standard way to remove default styling */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    cursor: pointer; /* Cursor as pointer */
+}
+
+.select-time:focus {
+    border-color: #0056b3; /* Blue border on focus */
+    outline: none;
+}

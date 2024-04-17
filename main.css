@@ -1,0 +1,586 @@
+html {
+  padding: 0;
+  margin: 0;
+  height: 100%; /* This can be adjusted if needed */
+  box-sizing: border-box;
+  background-color: black;
+
+
+}
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%; /* This can be adjusted if needed */
+  box-sizing: border-box;
+  background-color: black;
+
+
+}
+* {
+  box-sizing: border-box;
+}
+.container {
+  width: 100%; /* full width of the parent */
+  max-width: 1200px; /* maximum width */
+  margin: 0 auto; /* centering */
+}
+.mobile-header {
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* stack sidebar on smaller screens */
+  }
+}
+
+.fixed-element {
+  position: fixed;
+  right: 0;
+  width: 300px; /* ensure it doesn't cause horizontal scrolling */
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap; /* ensures elements wrap within the container */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* adaptive columns */
+}
+.scrollable-content {
+  overflow-x: auto; /* enables horizontal scrolling only where necessary */
+}
+img {
+  max-width: 100%; /* ensures images are not bigger than their containers */
+  height: auto; /* maintain aspect ratio */
+}
+
+
+/* Style for the fullscreen image */
+.fullscreen-image img {
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  object-fit: cover; /* This will cover the full area, use object-position if needed to adjust the view */
+  display: block; /* Remove any default inline spacing */
+}
+
+/* General style for side-by-side images container */
+.side-by-side-images {
+  display: flex;
+  justify-content: space-between; /* This will place equal space between elements */
+  align-items: center;
+  margin: 10px; /* Space from the viewport edges */
+}
+
+/* Style for individual images */
+.side-by-side-images img {
+  object-fit: cover;
+  height: 70vh; /* Set the height to 70% of the viewport */
+  margin-bottom: 10px; /* Space between rows of images */
+  margin-left :10px;
+}
+
+/* First set of images (30/70 split with margins considered) */
+.side-by-side-images:nth-of-type(1) img:first-child {
+  width: calc(30% - 40px); /* adjust width by subtracting double the side margin */
+  margin-right: 20px; /* Space between the two images */
+  
+}
+
+.side-by-side-images:nth-of-type(1) img:last-child {
+  width: calc(70% - 40px);
+  
+}
+
+/* Second set of images (70/30 split with margins considered) */
+.side-by-side-images:nth-of-type(2) img:first-child {
+  width: calc(70% - 40px); /* adjust width by subtracting double the side margin */
+  margin-right: 20px; /* Space between the two images */
+}
+
+.side-by-side-images:nth-of-type(2) img:last-child {
+  width: calc(30% - 40px);
+}
+
+@media only screen and (max-width: 600px) {
+	.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers the links horizontally */
+  width: 100%; /* Ensures the links use up the full width of the navbar */
+}
+  .side-by-side-images {
+    flex-direction: column;
+    margin: 10px; /* Reduced space for smaller screens */
+  }
+
+  .side-by-side-images img {
+    width: calc(100% - 20px); /* Full width minus the margin for smaller screens */
+    margin-bottom: 20px; /* Keep consistent space at the bottom */
+	height: 100%; /* Set the height to 70% of the viewport */
+  }
+}
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transition: top 0.3s; /* Transition for smooth slide-in effect */
+  display: flex;
+  justify-content: space-between; /* Aligns logo to the left and nav links to the right */
+  align-items: center; /* Centers items vertically */
+  padding: 0 10px; /* Add padding on the sides */
+  background-color: rgba(51, 51, 51, 1); /* Solid color for initial state */
+  backdrop-filter: blur(10px); /* This will give a frosted glass effect */
+  background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+
+}
+.navbar img {
+  height: 40px; /* Adjust the size of your logo */
+}
+
+.nav-links {
+  flex-direction: column;
+  align-items: center; /* This centers the links horizontally */
+}
+.nav-links a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  
+}
+.nav-links a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.navbar.scrolled {
+
+  top: 0;
+  bottom: auto;
+  background-color: rgba(51, 51, 51, 0.5); /* Semi-transparent color when scrolled */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 100%, rgba(0, 0, 0, 0) 0%);
+
+}
+
+@media only screen and (max-width: 600px) {
+
+/* Base styles for the mobile navbar, hidden by default */
+.mobile-navbar {
+  display: flex; /* Establishes this element as a flex container */
+  flex-direction: column; /* Stacks the child elements vertically */
+  justify-content: center; /* Centers the child elements vertically */
+  align-items: center; /* Centers the child elements horizontally */
+  position: fixed;
+  top: -200%; /* Adjusted to show navbar */
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Takes up the full viewport height */
+  background: rgba(0, 0, 0, 0.9); /* Semi-transparent black background */
+  transition: top 0.3s ease-in-out;
+  z-index: 1000; /* Ensures it's above other content */
+  overflow-y: auto; /* Allows scrolling if the content is taller than the screen */
+}
+
+.powered-by {
+  position: absolute; /* Position it at the bottom inside the navbar */
+  bottom: 0;
+  width: 100%; /* Full width */
+  text-align: center; /* Center the text */
+  padding: 10px; /* Add some padding at the bottom */
+  font-size: 20px; /* Adjust the font size as needed */
+  color: #fff; /* Text color */
+}
+/* Style for nav-links inside the mobile navbar */
+.mobile-navbar .nav-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-navbar .nav-links a {
+  padding: 15px;
+  margin: 5px 0;
+  color: white;
+  font-size: 1.5em;
+}
+
+/* Make the navbar visible when the 'open' class is added */
+.mobile-navbar.open {
+  display: flex;
+  top:0;
+}
+}
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+  /* Hide the desktop navbar and show the mobile navbar trigger button */
+  .navbar {
+    display: none;
+  }
+
+  .mobile-navbar-trigger {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001; /* Above the mobile navbar */
+    /* Add styles for your menu trigger button here */
+  }
+
+  /* Show the mobile navbar when it has the 'open' class */
+  .mobile-navbar.open {
+    display: flex;
+  }
+}
+.mobile-navbar-trigger {
+  display: none; /* Hide by default, will be shown in the media query for mobile */
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1001; /* Above the mobile navbar */
+  cursor: pointer;
+}
+
+.hamburger-icon {
+  display: block;
+  width: 30px; /* Width of the hamburger icon */
+  height: 20px; /* Height of the hamburger icon */
+}
+
+.hamburger-icon .bar {
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin-bottom: 5px;
+  background-color: #ffffff; /* Color of the hamburger icon bars */
+  transition: 0.3s ease;
+}
+
+/* Hide the bottom margin of the last bar */
+.hamburger-icon .bar:last-child {
+  margin-bottom: 0;
+}
+
+/* Styling for when the mobile navbar is open - transforms hamburger into 'X' */
+.mobile-navbar.open .hamburger-icon .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-navbar.open .hamburger-icon .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-navbar.open .hamburger-icon .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+  .mobile-navbar-trigger {
+    display: block; /* Show the trigger button on mobile devices */
+  }
+}
+
+
+.footer {
+  position: relative; /* Or just remove the position property altogether */
+  width: 100%;
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 10;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.instagram-link {
+  display: block;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 24px;
+}
+
+.footer span {
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+
+.mobile-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9); /* or the color you want for the mobile header */
+  z-index: 10; /* Adjust if necessary to ensure the header is above other content */
+  display: flex; /* Aligns the logo to the left */
+  align-items: center; /* Centers the logo vertically */
+  padding: 10px; /* Add some space inside the header */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds a shadow for some depth */
+}
+
+.mobile-logo {
+  height: 20px; /* Adjust based on the size of your logo */
+}
+}
+.fixed-footer{
+display:none;
+}
+@media (max-width: 767px) { /* or whichever breakpoint suits your design */
+
+.fixed-footer {
+  display: block;
+  position: fixed; /* Keeps the footer at the bottom of the screen */
+  left: 0;
+  bottom: 0; /* Aligns the footer to the bottom */
+  width: 100%; /* Full width of the viewport */
+  background: rgba(0, 0, 0, 0.9); /* Example background color */
+  color: #fff; /* Example text color */
+  text-align: center; /* Centers the text */
+  padding: 10px 0; /* Example padding */
+  z-index: 1500; /* Makes sure the footer is above other elements */
+  font-size: 18px; /* Example font size */
+}
+
+.phone-number {
+  color: #fff; /* Example text color, should match your footer text color */
+  text-decoration: none; /* Removes underline from links */
+  /* Additional styles if needed */
+}
+}
+
+/* Transforms for the hamburger-icon bars when 'open' class is applied */
+.hamburger-icon.open .bar:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.hamburger-icon.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open .bar:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* This is the container for your Hours & Location content */
+.hours-location-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full height of the viewport */
+  background-color: black; /* Since you want a black background */
+}
+
+/* The top half with text information */
+.text-information {
+  flex: 1; /* Takes half of the space */
+  color: white; /* Text color */
+  padding: 20px; /* Add some padding */
+  text-align:center;
+  /* Add more styling for text formatting */
+}
+
+/* The bottom half with Google Maps */
+.google-maps {
+  flex: 1; /* Takes the other half of the space */
+  /* No additional styling needed here unless you want more padding or borders */
+}
+
+/* Make sure your navbar has a background if it's transparent on scroll */
+.navbar {
+  background-color: #333; /* or any color you want */
+  Height:50px;
+  
+}
+.mobile-nav-links{
+  display: none;
+	
+}
+
+@media (max-width: 767px) {
+  .mobile-nav-links{
+    display: flex; /* or block, depending on your desired layout */
+    /* Your other styles for nav-links */
+  flex-direction: column;
+  align-items: center; /* This centers the links horizontally */
+  width: 100%; /* Ensures the links use up the full width of the navbar */
+}
+.mobile-nav-links a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  
+}
+.mobile-nav-links a:hover {
+  background-color: #ddd;
+  color: black;
+}
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centers buttons in the container */
+  align-items: center; /* Vertically aligns buttons if needed */
+  gap: 10px; /* Adds space between buttons */
+  padding: 20px; /* Adds some space inside the container */
+  background-color: black; /* Matches your provided image */
+  margin-top:40px;
+}
+
+.menu-button {
+  padding: 10px 20px; /* Adjust padding as needed */
+  background-color: white; /* Button background color */
+  border: 2px solid black; /* Border color matching the background */
+  color: black; /* Text color */
+  font-size: 16px; /* Adjust font size as needed */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+  transition: background-color 0.3s, color 0.3s; /* Transition for hover effect */
+}
+
+.menu-button:hover {
+  background-color: black; /* Button background color on hover */
+  color: white; /* Text color on hover */
+  border: 2px solid white; /* Border color on hover */
+}
+
+.menu-image-container {
+  text-align: center; /* Center the images if necessary */
+}
+
+.menu-image {
+  display: none; /* Hide images by default */
+  max-width: 100%; /* Ensure images are responsive and fit their container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.content-container {
+  display: flex;
+  min-height: 100vh; /* Full height of the viewport */
+}
+
+.image-container {
+  flex: 1; /* Takes up half of the container */
+  background: url('your-image.jpg') no-repeat center center;
+  background-size: cover; /* Make sure the image covers the entire div */
+  margin-top:60px;
+}
+
+.text-container {
+  flex: 1; /* Takes up the other half of the container */
+  padding: 20px; /* Add some padding */
+  background-color: black; /* Optional: If you want a different background */
+  overflow-y: auto; /* Adds scroll to text container if content is too long */
+  color: white;
+  margin-top: 60px;
+
+}
+
+/* Add styling for the text */
+.text-container h1 {
+  font-size: 2em; /* Adjust the size as needed */
+  margin-bottom: 0.5em;
+}
+
+.text-container p {
+  font-size: 1em; /* Adjust the size as needed */
+  margin-bottom: 1em; /* Adjust the space between paragraphs as needed */
+}
+
+/* Make sure your images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+p {
+  display: block; /* This enforces the default block-level behavior */
+  margin-top: 0;
+  margin-bottom: 1em; /* Adjust the value to increase space between paragraphs */
+}
+
+@media (max-width: 767px) {
+  .content-container {
+    flex-direction: column;
+  }
+
+  .image-container,
+  .text-container {
+    flex: none; /* This will remove the flex grow/shrink properties */
+    width: 100%; /* Each child takes up the full width of the container */
+    margin-top: 0; /* Resetting the margin top if not needed in mobile view */
+  }
+
+}
+
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This will take at least the full height of the viewport */
+  width: 100%; /* This will take the full width of the viewport */
+  padding: 20px; /* Add some padding */
+  box-sizing: border-box; /* This ensures padding is included in the width and height */
+}
+
+.form-container {
+  width: 100%;
+  max-width: 600px; /* Adjust this width as needed */
+  margin: auto; /* Ensures the form stays centered horizontally if the screen is wider than 600px */
+  /* Your other form styles... */
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 50vh;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #fff; /* White border */
+  color: black;
+}
+
+@media (max-width: 600px) {
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #fff; /* White border */
+  color: black;
+}
+
+}
+input[type="file"] {
+  width: 100%;
+  margin: 10px 0; /* Align with other inputs */
+  color: white;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: white;
+  color: black;
+}	

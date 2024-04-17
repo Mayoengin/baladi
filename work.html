@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work With Us</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  
+  <!-- Include the Google Maps API if necessary, or use an embed link -->
+</head>
+<body>
+  <header class="mobile-header">
+  <a href="main.html"> <img src="main_logo1.png" alt="Logo" class="mobile-logo" /></a>
+    <!-- Other elements like a menu button can also go here -->
+  </header>
+<div class="navbar" id="navbar">
+  <a href="main.html"> <img src="main_logo1.png" alt="Logo"></a> <!-- Path to your logo -->
+  <div class="nav-links">
+    <a href="hours.html">HOURS & LOCATION</a>
+    <a href="menu.html">MENU</a>
+    <a href="about.html">ABOUT US</a>
+    <a href="work.html">WORK WITH US</a>
+    <a href="reservation.html">RESERVATIONS</a>
+  </div>
+</div>
+
+
+<!-- Mobile navbar trigger button (hamburger menu) -->
+<div class="mobile-navbar-trigger" id="mobileNavTrigger">
+  <span class="hamburger-icon">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </span>
+</div>
+
+<!-- Mobile navbar, initially hidden -->
+<div class="mobile-navbar" id="mobileNavbar">
+  <div class="mobile-nav-links">
+    <a href="hours.html ">HOURS & LOCATION</a>
+    <a href="menu.html">MENU</a>
+    <a href="about.html">ABOUT US</a>
+    <a href="work.html">WORK WITH US</a>
+    <a href="reservation.html">RESERVATIONS</a>
+    <!-- Instagram link -->
+    <a href="https://www.instagram.com/baladi.be/" target="_blank" aria-label="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <div class="powered-by">
+      POWERED BY MOE
+    </div>
+  </div>
+</div>
+
+<div class="centered-container">
+<div class="form-container">
+    <h1 style="color:white;">WORK WITH US</h1>
+    <p style="color:white;">We would love to have you join our team! Fill out the form below and we will be in touch.</p>
+    <form id="workWithUsForm"  action="https://formspree.io/f/xleqoqev" method="post">
+      <label style="color:white;" for="name">Name - Required</label>
+      <input type="text" id="name" name="name" placeholder="Name" required>
+      
+      <label style="color:white;" for="email">Email - Required</label>
+      <input type="email" id="email" name="email" placeholder="Email" required>
+      
+      <label style="color:white;" for="phone">Phone Number - Required</label>
+      <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+      
+      <label style="color:white;" for="cover-letter">Cover Letter - Required</label>
+      <textarea id="cover-letter" name="cover-letter" placeholder="Cover Letter" required></textarea>
+      
+      <label style="color:white;" for="resume">Résumé - Required</label>
+      <input type="file" id="resume" name="resume" required>
+      
+      <button type="submit">APPLY</button>
+    </form>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <a href="https://www.instagram.com/baladi.be/" target="_blank" aria-label="Instagram" class="instagram-link">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <span>POWERED BY MOE</span>
+  </div>
+</footer>
+  
+  <script src="main.js"></script>
+</body>
+</html>

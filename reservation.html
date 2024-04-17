@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="res.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/pikaday.min.js"></script>
+</head>
+<body>
+  <header class="mobile-header">
+    <a href="main.html"><img src="main_logo1.png" alt="Logo" class="mobile-logo" /></a>
+  </header>
+  <div class="navbar" id="navbar">
+    <a href="main.html"><img src="main_logo1.png" alt="Logo"></a>
+    <div class="nav-links">
+      <a href="hours.html">HOURS & LOCATION</a>
+      <a href="menu.html">MENU</a>
+      <a href="about.html">ABOUT US</a>
+      <a href="work.html">WORK WITH US</a>
+      <a href="reservation.html">RESERVATIONS</a>
+    </div>
+  </div>
+  <div class="mobile-navbar-trigger" id="mobileNavTrigger">
+    <span class="hamburger-icon">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </span>
+  </div>
+  <div class="mobile-navbar" id="mobileNavbar">
+    <div class="mobile-nav-links">
+      <a href="hours.html">HOURS & LOCATION</a>
+      <a href="menu.html">MENU</a>
+      <a href="about.html">ABOUT US</a>
+      <a href="work.html">WORK WITH US</a>
+      <a href="reservation.html">RESERVATIONS</a>
+      <a href="https://www.instagram.com/baladi.be/" target="_blank" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <div class="powered-by">POWERED BY MOE</div>
+    </div>
+  </div>
+  <div class="reservation-form-container">
+    <h2>RESERVATIONS</h2>
+    <form id="reservationForm">
+      <div class="form-group">
+        <label for="number-of-people">Number of People - Optional</label>
+        <select id="number-of-people" name="number-of-people">
+          <option value="">Number of people</option>
+          <option value="1">1 person</option>
+          <option value="2">2 people</option>
+          <option value="3">3 people</option>
+          <option value="4">4 people</option>
+          <option value="5">5 people</option>
+          <option value="6">6 people</option>
+          <option value="7">7 people</option>
+          <option value="8">8+ people</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Date - Required</label>
+        <select id="date-picker" name="date" required>
+          <option value="">Select a date</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="find-table-btn">FIND A TABLE</button>
+      </div>
+    </form>
+  </div>
+  <!-- Reservation Details Modal -->
+  <div id="reservationModal" action="https://formspree.io/f/mayraydz" method="POST" class="modal">
+    <div class="modal-content">
+      <span class="close-button">×</span>
+      <h2>Enter Reservation Details</h2>
+      <form id="detailsForm">
+        <div class="form-group">
+          <label for="res-time">Time:</label>
+          <select id="time" class="form-control unselected" name="time">
+    <option value="" selected disabled>Time</option>
+    <option value="10:00">10:00 PM</option>
+    <option value="9:30">9:30 PM</option>
+    <option value="9:00">9:00 PM</option>
+    <option value="8:30">8:30 PM</option>
+    <option value="8:00">8:00 PM</option>
+    <option value="8:00">7:30 PM</option>
+    <option value="7:00">7:00 PM</option>
+    <option value="6:30">6:30 PM</option>
+    <option value="6:00">6:00 PM</option>
+    <option value="5:30">5:30 PM</option>
+    <option value="5:00">5:00 PM</option>
+    <option value="4:30">4:30 PM</option>
+    <option value="4:00">4:00 PM</option>
+    <option value="3:30">3:30 PM</option>
+    <option value="3:00">3:00 PM</option>
+    <option value="2:30">2:30 PM</option>
+    <option value="2:00">2:00 PM</option>
+    <option value="1:30">1:30 PM</option>
+    <option value="1:00">1:00 PM</option>
+    <option value="12:30">12:30 PM</option>
+    <option value="12:00">12:00 PM</option>
+</select>
+        </div>
+        <div class="form-group">
+          <label for="res-name">Name:</label>
+          <input type="text" id="res-name" name="res-name" required>
+        </div>
+        <div class="form-group">
+          <label for="res-phone">Phone Number:</label>
+          <input type="tel" id="res-phone" name="res-phone" required>
+        </div>
+        <div class="form-group">
+          <label for="res-email">Email:</label>
+          <input type="email" id="res-email" name="res-email" required>
+        </div>
+		  <input type="hidden" name="res-people" id="res-people">
+		  <input type="hidden" name="res-date" id="res-date">
+        <button type="submit" class="submit-details-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    // Populate dates in the date picker dropdown
+    var datePicker = document.getElementById('date-picker');
+    var today = new Date();
+    var endDate = new Date();
+    endDate.setDate(today.getDate() + 30); // Show dates for the next 30 days
+
+    while (today <= endDate) {
+      var option = document.createElement('option');
+      option.value = today.toISOString().split('T')[0];
+      option.textContent = today.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      datePicker.appendChild(option);
+      today.setDate(today.getDate() + 1);
+    }
+  </script>
+</body>
+</html>

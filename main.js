@@ -76,32 +76,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  // Section Image Toggle Buttons
-  document.getElementById('dinnerButton').addEventListener('click', function() {
-    document.getElementById('dinnerImage').style.display = 'block';
-    document.getElementById('brunchImage').style.display = 'none';
-    document.getElementById('drinkImage').style.display = 'none';
-    document.getElementById('wineImage').style.display = 'none';
-  });
 
-  document.getElementById('brunchButton').addEventListener('click', function() {
-    document.getElementById('dinnerImage').style.display = 'none';
-    document.getElementById('brunchImage').style.display = 'block';
-    document.getElementById('drinkImage').style.display = 'none';
-    document.getElementById('wineImage').style.display = 'none';
-  });
-
-  document.getElementById('wineButton').addEventListener('click', function() {
-    document.getElementById('dinnerImage').style.display = 'none';
-    document.getElementById('brunchImage').style.display = 'none';
-    document.getElementById('drinkImage').style.display = 'none';
-    document.getElementById('wineImage').style.display = 'block';
-  });
-
-  document.getElementById('drinkButton').addEventListener('click', function() {
-    document.getElementById('dinnerImage').style.display = 'none';
-    document.getElementById('brunchImage').style.display = 'none';
-    document.getElementById('drinkImage').style.display = 'block';
-    document.getElementById('wineImage').style.display = 'none';
-  });
 });

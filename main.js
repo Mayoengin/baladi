@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburgerIcon.classList.toggle('open');
   });
 
+
   // Modal Handling
   var modal = document.getElementById("reservationModal");
   var reservationForm = document.getElementById("reservationForm");

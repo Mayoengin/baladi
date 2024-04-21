@@ -66,7 +66,13 @@ img {
   object-fit: cover; /* This will cover the full area, use object-position if needed to adjust the view */
   display: block; /* Remove any default inline spacing */
 }
-
+@media (max-width: 768px){
+.fullscreen-image img{
+  width: 100vw; /* Full width */
+  height: auto; /* Full height */
+  object-fit: cover; /* This will cover the full area, use object-position if needed to adjust the view */
+  display: block; /* Remove any default inline spacing */}
+}
 /* General style for side-by-side images container */
 .side-by-side-images {
   display: flex;
@@ -584,3 +590,32 @@ button:hover {
   background: white;
   color: black;
 }	
+
+.background-section {
+  background-image: url('images/6.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.info-box {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  flex: 0 0 48%; /* boxes will take up 48% of the container width */
+  margin-bottom: 20px; /* Space between the rows */
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.info-box h2 {
+  color: gold; /* Gold color for headers */
+}
+@media (max-width: 768px) {
+  .info-box {
+    flex: 0 0 100%; /* On smaller screens, boxes will take up 100% of the width */
+    margin-bottom: 10px;
+  }
+}
